@@ -1,6 +1,6 @@
 import React from "react";
 import NewTask from "./components/newTask";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
