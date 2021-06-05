@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class NewTask extends Component {
   state = {
     listOfTasks: [],
-    newTask: "",
+    newTask: "I wanna ",
     defaultValue: "I wanna ",
   };
   handleKeyPress = (e) => {
@@ -29,7 +29,7 @@ class NewTask extends Component {
         <input
           type="text"
           name="defaultValue"
-          value={this.state.defaultValue}
+          value={this.state.newTask}
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress.bind(this)}
         />
