@@ -22,11 +22,6 @@ function CompletedTasks(props) {
         {completedTasks.map((txt) => (
           <div key={txt.id}>
             <li>{txt.value}</li>
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              onClick={props.markAsCompleted}
-            ></input>
           </div>
         ))}
       </div>

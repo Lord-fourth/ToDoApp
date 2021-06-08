@@ -17,47 +17,14 @@ function App() {
   };
   const handleChange = (event) => {
     setNewTask(event.target.value);
-    // this.setState({ newTask: event.target.value });
   };
   const handleToggleCheckbox = (index) => {
     console.log("inside handletoggle checkbox");
-    console.log("id in handletogglecheckbox:", index);
-    const sample = listOfTasks;
-    console.log("list:", listOfTasks, "sample:", sample);
-    sample[index - 1] = { ...newTask };
-    console.log("id:", index, "before bool:", sample[index - 1].isItCompleted);
-
+    const sample = [...listOfTasks];
     sample[index - 1].isItCompleted = !sample[index - 1].isItCompleted;
-    console.log("present bool:", sample[index - 1].isItCompleted);
     setListOfTasks(sample);
-    console.log("new list:", listOfTasks, "present sample", sample);
-  };
-  useEffect(() => {
-    console.log("inside use effect in app");
-    // setValue(props.isItCompleted);
-    setListOfTasks(listOfTasks);
-  }, [listOfTasks]);
-  const handleMarkAsCompleted = (newTask) => {
-    console.log("inside handlemarkascompleted");
-    const sample = listOfTasks;
-    // console.log("list:", listOfTasks, "sample:", sample);
-    let index = sample.indexOf(newTask);
-    sample[index] = { ...newTask };
-    sample[index].isItCompleted = true;
-    setListOfTasks(sample);
-    console.log(
-      "index:",
-      index,
-      "list:",
-      listOfTasks,
-      "status:",
-      listOfTasks[index].isItCompleted
-    );
   };
   function addNewTask() {
-    console.log("inside addnewtask");
-    // console.log(listOfTasks);
-    console.log("newTask:", newTask);
     setListOfTasks([
       ...listOfTasks,
       {
@@ -86,7 +53,6 @@ function App() {
             addTask={addNewTask}
             handleKeyPress={handleKeyPress}
             handleChange={handleChange}
-            markAsCompleted={handleMarkAsCompleted}
             toggleCheckbox={handleToggleCheckbox}
           />
         </TabPanel>
