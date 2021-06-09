@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NewTask from "./components/newTask";
 import CompletedTasks from "./components/completedTasks";
+import IncompletedTasks from "./components/incompleteTasks";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -43,6 +44,7 @@ function App() {
         <TabList>
           <Tab>All</Tab>
           <Tab>Completed</Tab>
+          <Tab>Active</Tab>
         </TabList>
 
         <TabPanel>
@@ -58,6 +60,16 @@ function App() {
         </TabPanel>
         <TabPanel>
           <CompletedTasks
+            listOfTasks={listOfTasks}
+            newTask={newTask}
+            defaultValue={defaultValue}
+            addTask={addNewTask}
+            handleKeyPress={handleKeyPress}
+            handleChange={handleChange}
+          />
+        </TabPanel>
+        <TabPanel>
+          <IncompletedTasks
             listOfTasks={listOfTasks}
             newTask={newTask}
             defaultValue={defaultValue}

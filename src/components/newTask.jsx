@@ -3,13 +3,23 @@ import Checkbox from "./checkbox";
 
 function NewTask(props) {
   console.log("list in newtask:", props.listOfTasks);
-  const [value, setValue] = useState(props.listOfTasks);
 
-  if (props.listOfTasks.size > 0)
-    console.log(
-      "isitcompleted in newtask:",
-      props.listOfTasks[0].isItCompleted
-    );
+  function Greeting(inp) {
+    if (inp.value.isempty) return <li>{inp.value}</li>;
+    if (props.listOfTasks[inp.id - 1].isItCompleted) {
+      return (
+        <li
+          style={{
+            textDecorationLine: "line-through",
+            textDecorationStyle: "solid",
+          }}
+        >
+          {inp.value}
+        </li>
+      );
+    }
+    return <li>{inp.value}</li>;
+  }
   return (
     <React.Fragment>
       <input
@@ -26,7 +36,8 @@ function NewTask(props) {
       <div>
         {props.listOfTasks.map((txt) => (
           <div key={txt.id}>
-            <li>{txt.value}</li>
+            {/* <li>{txt.value}</li> */}
+            <Greeting id={txt.id} value={txt.value} />
             <Checkbox
               isItCompleted={txt.isItCompleted}
               id={txt.id}
