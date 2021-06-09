@@ -25,6 +25,12 @@ function App() {
     sample[index - 1].isItCompleted = !sample[index - 1].isItCompleted;
     setListOfTasks(sample);
   };
+  const handleDelete = (id) => {
+    console.log("inside handletoggle checkbox");
+    const sample = [...listOfTasks].filter((c) => c.id != id);
+    // sample = sample.filter((c) => c.id != id);
+    setListOfTasks(sample);
+  };
   function addNewTask() {
     setListOfTasks([
       ...listOfTasks,
@@ -66,6 +72,7 @@ function App() {
             addTask={addNewTask}
             handleKeyPress={handleKeyPress}
             handleChange={handleChange}
+            handleDelete={handleDelete}
           />
         </TabPanel>
         <TabPanel>

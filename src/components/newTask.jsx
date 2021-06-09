@@ -6,7 +6,8 @@ function NewTask(props) {
 
   function Greeting(inp) {
     if (inp.value.isempty) return <li>{inp.value}</li>;
-    if (props.listOfTasks[inp.id - 1].isItCompleted) {
+    let obj = props.listOfTasks.find((obj) => obj.id == inp.id);
+    if (obj.isItCompleted) {
       return (
         <li
           style={{

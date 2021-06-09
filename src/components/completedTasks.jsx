@@ -18,6 +18,12 @@ function CompletedTasks(props) {
             >
               {txt.value}
             </li>
+            <button
+              className="btn btn-danger btn-sm m-2"
+              onClick={() => props.handleDelete(txt.id)}
+            >
+              delete
+            </button>
           </div>
         ))}
       </div>
