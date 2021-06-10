@@ -26,9 +26,14 @@ function App() {
     setListOfTasks(sample);
   };
   const handleDelete = (id) => {
-    console.log("inside handletoggle checkbox");
+    console.log("inside handleDelete");
     const sample = [...listOfTasks].filter((c) => c.id != id);
     // sample = sample.filter((c) => c.id != id);
+    setListOfTasks(sample);
+  };
+  const handleDeleteAll = () => {
+    console.log("inside handleDeleteAll ");
+    const sample = [...listOfTasks].filter((c) => c.isItCompleted === false);
     setListOfTasks(sample);
   };
   function addNewTask() {
@@ -73,6 +78,7 @@ function App() {
             handleKeyPress={handleKeyPress}
             handleChange={handleChange}
             handleDelete={handleDelete}
+            handleDeleteAll={handleDeleteAll}
           />
         </TabPanel>
         <TabPanel>

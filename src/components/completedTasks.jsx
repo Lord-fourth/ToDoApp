@@ -26,6 +26,12 @@ function CompletedTasks(props) {
             </button>
           </div>
         ))}
+        <button
+          className="btn btn-danger btn-sm m-2"
+          onClick={props.handleDeleteAll}
+        >
+          Delete All
+        </button>
       </div>
     </React.Fragment>
   );
