@@ -21,8 +21,11 @@ function App() {
   };
   const handleToggleCheckbox = (index) => {
     console.log("inside handletoggle checkbox");
+    let obj = listOfTasks.find((obj) => obj.id == index);
     const sample = [...listOfTasks];
-    sample[index - 1].isItCompleted = !sample[index - 1].isItCompleted;
+    let indexToChange = sample.indexOf(obj);
+    sample[indexToChange].isItCompleted = !sample[indexToChange].isItCompleted;
+    // sample[index - 1].isItCompleted = !sample[index - 1].isItCompleted;
     setListOfTasks(sample);
   };
   const handleDelete = (id) => {
@@ -51,7 +54,12 @@ function App() {
   return (
     <React.Fragment>
       <h1>To Do App</h1>
-      <Tabs>
+      <Tabs
+        tabItemContainerStyle={{ width: "44px" }}
+
+        // style={{ background: "blue" }}
+        // contentContainerStyle={{ background: "#FFF" }}
+      >
         <TabList>
           <Tab>All</Tab>
           <Tab>Completed</Tab>

@@ -1,4 +1,5 @@
 import React from "react";
+import { MDBIcon } from "mdbreact";
 
 function CompletedTasks(props) {
   const completedTasks = props.listOfTasks.filter((task) => {
@@ -30,8 +31,16 @@ function CompletedTasks(props) {
           className="btn btn-danger btn-sm m-2"
           onClick={props.handleDeleteAll}
         >
+          <i class="bi bi-trash"></i>
           Delete All
         </button>
+
+        <button class="btn">
+          <i class="fa fa-trash"></i>
+          <MDBIcon far icon="trash-alt" />
+          <MDBIcon icon="check-square" list /> Trash
+        </button>
+        {/* <Icon name="edit" tooltip="Edit" theme="light" size="medium" /> */}
       </div>
     </React.Fragment>
   );
