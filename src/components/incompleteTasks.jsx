@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 
 function IncompletedTasks(props) {
   const incompletedTasks = props.listOfTasks.filter((task) => {
@@ -8,6 +9,8 @@ function IncompletedTasks(props) {
   return (
     <React.Fragment>
       <input
+        className="input-form"
+        style={{ textAlign: "center" }}
         type="text"
         name="defaultValue"
         value={props.newTask}
@@ -20,8 +23,8 @@ function IncompletedTasks(props) {
       </button>
       <div>
         {incompletedTasks.map((txt) => (
-          <div key={txt.id}>
-            <li>{txt.value}</li>
+          <div key={txt.id} className="myForm">
+            <ul>{txt.value}</ul>
           </div>
         ))}
       </div>
